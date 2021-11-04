@@ -1,0 +1,53 @@
+---
+title: How does April record affect making the playoffs?
+date: "document created 2021-10-24, last compiled `r ecmfuns::ecm_timestamp()`"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(magrittr)
+library(ggplot2)
+```
+
+
+```{r load-win-loss-data}
+# load the win/loss percentage data by month
+
+wl_data <- readr::read_rds(here::here("data", "tidy-win-pcts.rds"))
+```
+
+
+```{r wrangle-playoff-series-data}
+ws_data <- Lahman::SeriesPost %>% 
+  dplyr::filter(round == "WS") %>% 
+  dplyr::transmute(
+    yearID = yearID,
+    ws_winner = teamIDwinner, 
+    ws_loser = teamIDloser) %>%
+  tidyr::pivot_longer(cols = c(ws_winner, ws_loser),
+                      names_to = 'result',
+                      values_to = 'teamID') %>% 
+  dplyr::left_join(Lahman::Teams) %>% 
+  dplyr::transmute(
+    year = yearID,
+    result = result,
+    team = teamID
+  ) 
+
+ws_data %>% 
+  dplyr::left_join(wl_data) %>% 
+  tidyr::drop_na() %>% 
+  dplyr::filter(result == 'ws_winner') %>% 
+  ggplot(aes(x = month, y= win_pct, fill = month))+
+  geom_col()
+
+
+
+split(~yearID + round) %>% 
+  head()
+  .[122, ] %>% 
+  tidyr::unnest(value) %>% 
+  View()
+```
+
