@@ -1,18 +1,32 @@
 ---
 title: "A quantitative study of MLB team performance in April and its relation to season-end results"
 author: "Evan C. Mascitti"
+subtitle: "Electronic version available at [evanmascitti.github.io/april-study/April-study-final-report.html](https://evanmascitti.github.io/april-study/April-study-final-report.html)"
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
 bibliography: ["library.bib", "packages.bib"]
 linestretch: 1.3
 mainfont: Roboto
 output: 
   bookdown::pdf_document2: 
+    number_sections: false
+    toc: false
     latex_engine: xelatex
     includes:
       in_header: preamble.tex
+    bookdown::html_document2: 
+      number_sections: false
+      toc: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  out.width = '90%',
+  fig.align = 'center')
 ```
 
 
@@ -33,7 +47,7 @@ if(any(file.mtime(plots_script) > file.mtime(list.files(path = "figures", full.n
 
 Early-season woes are sometimes blamed for a baseball team's poor record.
 
-Losses which occur during the cold spring months accumulate.
+Losses during the cold spring months accumulate.
 Indeed, from a mathematical standpoint, these games matter just as much as those later in the year. 
 
 Early season performance may also serve to affect a team's psyche. 
@@ -52,20 +66,25 @@ This club is the only professional sports franchise to tally over 10,000 losses,
 
 
 
-The data suggest that the Phillies' record in April is no better at predicting whether they made the playoffs than their record in other months. 
+The data suggest that a team's record in April is no better at predicting whether they made the playoffs than their record in other months. 
+In contrast, winning % in the season's later months were better predictors of season-end records.  
 
 
 
-However, this does not rule out the possibility that a particularly poor April could place an irreparable burden on the team's morale.
+
+However, this does not rule out the possibility that a particularly poor April could place an irreparable burden on a team's morale.
 
 
 
-Anecdotally, in seasons in which the team made the postseason (1980, 1983, 1993, 2007-2011), their winning percentage increased over the course of the year. 
+For seasons in which the Phillies made the postseason (1976-1978, 1980, 1983, 1993, 2007-2011), their winning percentage often increased over the course of the year. 
 Whether this was due to acquisition of new talent, improved adjustments on the field, or to a more coherent team morale was beyond the scope of this study. 
 
 
+
+
 Mathematically, each of the 162 games count equally. 
-Still, this study appears to validate the old adage: "It's not how you start but how you finish."
+However, this study lends some credence to the old adage: "It's not how you start but how you finish."
+
 
 
 # Materials and methods 
@@ -93,12 +112,12 @@ Perhaps this is a function of good teams improving and adding talent during thei
 
 ```{r all-win-pcts, fig.cap="Win percent by month is positively correlated with end-of-season win percent. Scatter appears to decrease later in the season."}
 knitr::include_graphics(
-  path = here::here("figures", "monthly-win-pct-facets.pdf")
+  path = here::here("figures", "monthly-win-pct-facets.png")
 )
 ```
 
 
-Figure \@ref(fig:monthly-r-squared) shows the strength of the correlations in Figure  \@ref(fig:all-win-pcts). This suggests that April record has a relatively weak correlation to final record, while a team's record later in the season is an excellent predictor of their final record. 
+Figure \@ref(fig:monthly-r-squared) shows the strength of the correlations in Figure  \@ref(fig:all-win-pcts). This suggests that April record has a relatively weak correlation to final record, while a team's record later in the season is a better predictor of their final record. 
 In other words, teams that play their best baseball in August and September tend to also finish with better records, while advantages gained early in the season tend to be less durable. 
 Teams which play well in April but worse in the later months are unable to "outlast" the teams chasing them.
 
@@ -108,13 +127,13 @@ It must be emphasized that data in Figure \@ref(fig:monthly-r-squared) bear no c
 
 ```{r monthly-r-squared, fig.cap="April winnning percentage appears to be less critical than playing well in later months."}
 knitr::include_graphics(
-  path = here::here("figures", "monthly-r-squared-plots.pdf")
+  path = here::here("figures", "monthly-r-squared-plots.png")
 )
 ```
 
 # Phillies-specific analysis
 
-Figure \@ref(fig:phils-daily-win-pct-since-1970) shows the Phillies winning % for each day in the season (1970-2019).
+Figure \@ref(fig:phils-daily-win-pct-since-1970) shows the Phillies daily running winning % for date in the seasons spanning 1970-2019.
 
 
 These plots tend to be dampened over the course of the season, as the larger number of games played reduces the volatility of the team'
@@ -126,7 +145,7 @@ This makes it difficult to discern any meaningful patterns about the importance 
 
 ```{r phils-daily-win-pct-since-1970, fig.cap="Phillies win percent by day. Red lines indicate World Series championship; yellow lines indicate World Series defeay; blue lines indicate playoff berths."}
 knitr::include_graphics(
-  path = here::here("figures", "phils-since-1970-daily-win-pcts.pdf")
+  path = here::here("figures", "phils-since-1970-daily-win-pcts.png")
 )
 ```
 
@@ -145,7 +164,23 @@ However, the continued to improve throughout the season and caught fire at the p
 
 ```{r phils-monthly-win-pct-since-1970, fig.cap="Phillies win percent by month. Red lines indicate World Series championship; yellow lines indicate World Series defeay; blue lines indicate playoff berths."}
 knitr::include_graphics(
-  path = here::here("figures", "phils-since-1970-monthly-win-pcts.pdf")
+  path = here::here("figures", "phils-since-1970-monthly-win-pcts.png")
 )
 ```
+
+
+
+
+# Conclusions 
+
+
+Making causal inferences about baseball statistics is practically impossible. However, this study identified some interesting trends. 
+Performance in any given month does help predict a team's end-of-season result. Later months appear to have greater explanatory power, but any causal link to team morale is pureley speculative. 
+
+
+In the Phillies most successful seasons, the team often treaded water during the early months and played their best baseball late in the season. This finding should lend hope to Phillies fans, especially in light of the modern playoff system and its expanded field.
+
+
+
+# References 
 

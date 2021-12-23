@@ -4,9 +4,14 @@ FIGURES = $(wildcard ./figures/*.pdf)
 DATA = ./data/all-results.rds  ./data/tidy-win-pcts.rds 
 
 
-all: ./final-report.pdf 
+all: ./April-study-final-report.pdf ./April-study-final-report.html
 
-./final-report.pdf: ./final-report.Rmd $(FIGURES) ./src/R/win-pct-plots.R $(DATA) ./library.bib ./packages.bib
+# render as pdf
+./April-study-final-report.pdf: ./April-study-final-report.Rmd $(FIGURES) ./src/R/win-pct-plots.R $(DATA) ./library.bib ./packages.bib
+	$(R_SCRIPT) -e 'rmarkdown::render(input = "$<", output_file = "$@")'
+
+# render as html
+./April-study-final-report.html: ./April-study-final-report.Rmd $(FIGURES) ./src/R/win-pct-plots.R $(DATA) ./library.bib ./packages.bib
 	$(R_SCRIPT) -e 'rmarkdown::render(input = "$<", output_file = "$@")'
 
 # download and save all results

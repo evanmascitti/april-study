@@ -129,7 +129,7 @@ if(interactive()){print(phils_since_1970_daily_plots)}
 
 ggsave(
   plot = phils_since_1970_daily_plots,
-  filename = "figures/phils-since-1970-daily-win-pcts.pdf",
+  filename = "figures/phils-since-1970-daily-win-pcts.png",
   height = 8.5,
   width = 11)
 
@@ -169,7 +169,7 @@ if(interactive()){print(phils_since_1970_monthly_plots)}
 
 ggsave(
   plot = phils_since_1970_monthly_plots,
-  filename = "figures/phils-since-1970-monthly-win-pcts.pdf",
+  filename = "figures/phils-since-1970-monthly-win-pcts.png",
   height = 8.5,
   width = 11)
 
@@ -204,7 +204,7 @@ r_squared_values <- models %>%
 
 monthly_win_pct_plots <- model_data %>% 
   ggplot(aes(month_win_pct, year_win_pct, color = month))+
-  geom_point(alpha = 1/25)+
+  geom_point(alpha = 1/10)+
   geom_smooth(formula = y~x, method = lm, se = F, color = 'grey50', size = 0.25)+
   scale_y_continuous("End-of-season win %", breaks = c(0.2, 0.4, 0.6, 0.8), labels = scales::label_percent(accuracy = 1, suffix = ""))+
   expand_limits(y = c(0.2, 0.8))+
@@ -229,10 +229,10 @@ r_squared_plots <- r_squared_values %>%
 
 
 ggsave(plot = monthly_win_pct_plots, 
-       filename = "./figures/monthly-win-pct-facets.pdf",
+       filename = "./figures/monthly-win-pct-facets.png",
        height = 6, width = 9)
 
 
 ggsave(plot = r_squared_plots, 
-       filename = "./figures/monthly-r-squared-plots.pdf",
+       filename = "./figures/monthly-r-squared-plots.png",
        height = 6, width = 9)
