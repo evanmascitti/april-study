@@ -12,7 +12,7 @@ all: ./April-study-final-report.pdf ./April-study-final-report.html
 
 # render as html
 ./April-study-final-report.html: ./April-study-final-report.Rmd $(FIGURES) ./src/R/win-pct-plots.R $(DATA) ./library.bib ./packages.bib
-	$(R_SCRIPT) -e 'rmarkdown::render(input = "$<", output_file = "$@")'
+	$(R_SCRIPT) -e 'rmarkdown::render(input = "$<", output_format = "bookdown::html_document2")'
 
 # download and save all results
 ./data/all-results.rds: ./src/R/win-losses-gathering.R

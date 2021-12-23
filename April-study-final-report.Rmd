@@ -15,9 +15,10 @@ output:
     latex_engine: xelatex
     includes:
       in_header: preamble.tex
-    bookdown::html_document2: 
-      number_sections: false
-      toc: false
+  bookdown::html_document2: 
+    number_sections: false
+    toc: false
+    self_contained: true
 ---
 
 ```{r setup, include=FALSE}
