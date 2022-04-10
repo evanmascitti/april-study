@@ -8,4 +8,6 @@ performance early in the season and the ultimate result of their season
 (for example, final record and playoff results).
 
 The final report is available at
-[evanmascitti.github.io/april-study/April-study-final-report.html](https://evanmascitti.github.io/april-study/April-study-final-report.html).
+[evanmascitti.github.io/april-study/April-study-final-report.pdf](https://evanmascitti.github.io/april-study/April-sutdy-final-report.pdf).
+
+<!-- [evanmascitti.github.io/april-study/April-study-final-report.html](https://evanmascitti.github.io/april-study/April-study-final-report.html) -->

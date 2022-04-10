@@ -1,7 +1,7 @@
 ---
 title: "A quantitative study of MLB team performance in April and its relation to season-end results"
 author: "Evan C. Mascitti"
-subtitle: "Electronic version available at [evanmascitti.github.io/april-study/April-study-final-report.html](https://evanmascitti.github.io/april-study/April-study-final-report.html)"
+subtitle: "Electronic version available at [evanmascitti.github.io/april-study/April-study-final-report.pdf](https://evanmascitti.github.io/april-study/April-study-final-report.pdf)"
 colorlinks: true
 linkcolor: blue
 urlcolor: blue
