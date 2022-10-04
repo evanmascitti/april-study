@@ -92,7 +92,7 @@ However, this study lends some credence to the old adage: "It's not how you star
 
 
 
-Data on `r 2019-1900` MLB seasons were downloaded from the Laman database using the R programming language [@R-core2021; @R-Lahman].
+Data on `r 2019-1900` MLB seasons were downloaded from the Laman database using the R programming language [@RCoreTeam2022; @R-Lahman].
 
 
 The data were summarized and plotted using **tidyverse** packages [@Wickham2019], and this report was compiled using R Markdown and GNU `Make` [@R-rmarkdown; @GNU2020]

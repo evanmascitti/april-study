@@ -216,8 +216,9 @@ monthly_win_pct_plots <- model_data %>%
 
 r_squared_plots <- r_squared_values %>% 
   ggplot(aes(month, r_squared))+
-  geom_col(aes(fill = month), alpha = 1/3)+
-  scale_color_gradient()+
+  geom_col(aes(fill = month, color = month), alpha = 1/3)+
+  #scale_color_gradient()+
+  colorblindr::scale_color_OkabeIto()+
   scale_y_continuous("Correlation") +
   labs(title = "Correlation between monthly winning % and end-of-year winning %")+
   theme(
